@@ -15,7 +15,7 @@
 | 编号 | 主题 | 领域 / 核心问题 | 决策边界 | 稿件 | 关联篇章 | 待验证项 | 交付状态 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 01 | StarRocks 是什么？为什么需要 OLAP 数据库？ | OLTP/OLAP 定位；何时需要专用分析引擎 | MySQL 优化/读副本 vs MySQL + StarRocks；不提前详述内部算子或导入实战 | [审阅稿](what/01-what-is-starrocks.md) | 02、03、10、11 | MySQL 与 StarRocks 结果一致性、p95、扫描量、数据新鲜度、故障表现 | **Draft PR 待审阅** |
-| 02 | 整体架构：FE、BE、CN 的职责 | 架构 / 控制路径与数据路径 | 存算一体与存算分离仅建全貌；深度选型留 15 | 待写 | 01、03、13、15 | 部署版本与组件职责 | 待交付 |
+| 02 | 整体架构：FE、BE、CN 的职责 | 架构 / FE 元数据与查询协调、BE 本地持久存储和执行、CN 计算与缓存 | 单 FE vs 多 FE；FE+BE vs FE+CN；只建职责全貌，深度选型留 15 | [审阅稿](what/02-fe-be-cn-architecture.md) | 01、03、13、15 | FE 角色/多数派、BE/CN 清单、EXPLAIN、节点故障、冷热缓存 | **Draft PR 待审阅** |
 | 03 | 一条订单汇总 SQL 如何执行？ | 分布式查询 / 扫描、局部聚合与 Exchange | 查询数据路径，不深入 CBO 和 Pipeline | 待写 | 02、05、07、09 | EXPLAIN 与 Profile | 待交付 |
 | 04 | 从 Table、Tablet 到 Segment | 列式存储 / 物理布局 | 数据文件组织，不深入数据分布决策 | 待写 | 03、05、06 | Rowset、Segment、压缩与 Compaction | 待交付 |
 | 05 | 分区与分桶 | 数据分布 / 裁剪与并行度 | 分区生命周期、桶数与倾斜 | 待写 | 04、07 | 数据分布与倾斜 | 待交付 |
@@ -37,3 +37,4 @@
 ## 交付记录
 
 - 2026-11-10：创建 What-01 审阅稿及本索引，提交至独立分支 `docs/starrocks-what-01-introduction-20261110`，等待 Draft PR 作者审阅；尚无运行环境实测。
+- 2026-11-12：What-02《整体架构：FE、BE、CN 的职责》在独立分支 `docs/starrocks-what-02-architecture-20261112` 提交审阅稿；官方事实/条件推断已标注，集群实验待补，Draft PR 待审阅。
